@@ -1,0 +1,113 @@
+Hackathon Caçada Inteligente
+
+PlatIAgro -> PlatIA
+
+Você sabe quais são as etapas para construir um modelo de IA?
+
+1 -> Levantamento de dados históricos - Aqueles que você usa para identificar padrões
+
+  Exemplo:
+
+    DATA        | Temperatura | Umidade | Máquina | Vibração Frente | Vibração atrás | Vibração Central | Horas desde a última falha | Falhará em breve
+    30/06/2016      60            81      Afrodite         246            514             175                       120                      Não
+    26/10/2021      77            93      Afrodite         1881           1577            1014                      1                        Sim
+
+  Atributo alvo - No caso acima a coluna "Falhará em breve", ele pode estar disponível ou não. É aquilo que você gostaria de saber antes de acontecer!
+  Os demais são atributos explicativos, eles trazem a nossa visão dados que são insumo para gerar o atribuo alvo.
+  Você usa o que você viu no passado para criar uma regra (modelo) para estimar uma resposta futura, a partir de informações que conseguimos coletar no momento presente.
+  Você tem acesso a elas a qualquer momento, ainda que não tenha acesso ao atributo alvo.
+
+2 -> Treinamento de modelos - "Engenharia de atributos" | "Teste de vários modelos" | "Avaliação dos resultados"
+
+  Engenharia de atributos -> Você usa os atributos que você já tem para criar novos e mais poderosos atributos.
+  Exemplo:
+
+    Maquina  | Temperatura | Formula da Temperatura normalizada | Temperatura após engenharia de atributos
+    Pandora  |    60       | =(60 - 65,6) / 6,8                      -0,81
+    Pandora  |    77       | =(77 - 65,6) / 6,8                       1,65
+    Pandora  |    61       | =(61 - 65,6) / 6,8                      -0,67
+    Pandora  |    66       | =(66 - 65,6) / 6,8                       0,06
+    Demeter  |    64       | =(64 - 65,6) / 6,8                      -0,23
+
+      Média         | 65,6
+      Desvio padrão | 6,8
+
+      Qual modelo acerta mais ou chega mais próximo do valor real?
+      No caso acima será o Random Forest Simplified
+
+3 -> Seleção do melhor modelo - Você escolhe o que forneceu melhor precisão
+
+  Random Forest Simplified
+  Dados Novos -> Podemos fazer pequenos ajustes no algoritmo do modelo para começar a usar com novos dados
+
+  Máquina: Hércules
+  Data: 08/07/2021
+  Temperatura: 62
+  Umidade: 79
+
+  Vibração frente: 341
+  Vibração atrás: 532
+  Vibração central: 456
+  Horas desde a última falha: 789
+  Falhará em breve: ???
+
+  Falhará em breve: SIM | Probabilidade: 0.974
+
+4 -> Modelo treinado, pronto para estimar novos casos. (Dados Novos - Aqueles que você quer prever com o modelo) -> Estimativa de um caso novo.
+
+
+O que preciso saber para utilizar o PlatIA???
+
+Para acesso teremos o link, um login e senha.
+
+Tela Inicial
+
+  PlatIAgro
+  A Plataforma de Inteligência Artificial para o Agronegócio - PlatIAgro - visa facilitar a construção de aplicações baseadas em IA, como machine learning em geral,
+  visão computacional e processamento de linguagem natural no contexto do agronegócio brasileiro.
+
+  Após logar nosso primeiro passo é criar um projeto.
+  Ao clicar em criar projeto, devemos escolher um nome pra ele e uma descrição sobre o mesmo.
+  Ai vamos ter um Dashboard com os dados do projeto Criado.
+
+  Agora vamos reconhecer os elementos da etapa de experimentação.
+
+  Ah, a tela de experimentação é onde vocês podem testar  modelos e avaliar resultados antes de escolher  o "campeão"
+
+
+  Agora vamos construir um experimento:
+
+  Clicar em Conjunto de Dados e escolher um fonte de dados, temos Google Drive, Upload de Arquivo.
+  Ao clicar em Upload de Arquivo nós arrastamos e soltamos para o Centro onde ficará o fluxo do processo.
+  Ao clicar no centro em Upload de arquivo no canto direito vamos clicar em IMPORTAR...
+  Ai podemos selecionar nosso arquivo CSV, que acho que é o formato que a plataforma trabalha.
+
+  Depois vamos clicar em Treinamento, no menu a esquerda do Centro do nosso Dashboard
+  E vamos escolher por exemplo, REGRESSOR AUTOML, ai linkamos o nosso Upload de arquivo com Regressor AutoML que arrastamos e colococamos no centro do Dashboard.
+
+  Ai vamos escolher em nossos dados um Atributo alvo, que no exemplo foi a coluna Quantidade de Agua no arquivo CSV que estamos utilizando.
+  Na sequência vamos  deixar o campo Modo de Seleção das features como "remover".
+
+  Ai podemos configurar Features para incluir/remover no modelo e no caso vamos escolher Data com isso teremos um modelo pronto.
+
+  Agora vamos ver um modelo de experimento de regressão
+
+  Mas o que é regressão?
+
+  É quando você quer prever um valor que pode ser todos os números reais (-2,1; 234,0; 78)
+
+  No modelo que criarmos podemos verificar os gráficos que foram gerados.
+
+  Temos de
+    Distribuição dos Dados
+    Distribuição dos Erros
+    Distribuição do Rótulo
+    Distribuição do Rótulo Ordenado
+    Distribuição do Erro Absoluto
+    Comparação da Distribuição do erro e a da normal
+    Distribuição do erro por segmento
+
+  Temos também junto com os gráficos um Data Table com os dados que fornecemos. E pelo que podemos perceber temos uma Coluna com o Campo AutoMLRegresso_prediction acrecido.
+  E podemos fazer o Download desses dados que foram gerados.
+
+  Agora vamos testar outro modelo? Sempre que quisermos testar algum modelo precisamos criar um novo experimento.
