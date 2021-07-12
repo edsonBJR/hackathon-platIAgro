@@ -111,3 +111,40 @@ Tela Inicial
   E podemos fazer o Download desses dados que foram gerados.
 
   Agora vamos testar outro modelo? Sempre que quisermos testar algum modelo precisamos criar um novo experimento.
+
+  Agora podemos utilizar a Regressão Liner para testar nosso modelo.
+  Mesmo processo utilizamos o Upload de arquivo e agora com a Regressão Linear.
+  Fazemos o importe do Dados que é em formato CSV, conferimos os atributos que estão dentro do nosso arquivo fonte de dados.
+  Depois devemos definir quem será nosso atributo alvo.
+
+  Podemos também comparar os resultado do dois modelos que treinamos com os dados que enviamos.
+  Conseguimos comparar os dados gerados com o Regressor AutoML e com a Regressão Linear.
+
+  Agora vamos ver um experimento de "classificação".
+
+  Classificação é quando você quer prever a qual grupo um novo caso pertence(você é team gato ou team cachorro?)
+  Uma das regressões que podemos utilizar para treinar os modelos é a regressão logistica.
+
+  Podemos pré-implantar o modelo escolhido. Só assim a gente consegue fazer "Inferências" com dados novos.
+  A pré-implantação permite que você possa testar o modelo antes de implantar de fato.
+  Para isso temos que ter alguns dados que não foram utilizados na etapa de treinamento.
+
+  No Dashboard temos um botão que se chama, Preparar para a implantação.
+  Ao clicarmos nele podemos escolher os fluxos que iremos utilizar para implantar.
+
+  Leva um tempo para criar automaticamente o algoritmo que faz a inferência.
+
+  Quando terminamos de implantar um modelo, temos uma url que é fornecida para acessarmos e é onde iremos receber novos dados.
+
+  Dentro do PlatIA podemos criar uma quantidade bem variada de tarefas.
+  E clicando no código fonte das tarefas entramos dentro de uma mar de algoritmos que são utilizados pelas tarefas.
+  Ele foi construido utilizando Python e quando entramos no algoritmo vemos uma Dashboard da JupyterLab.
+
+  Podemos criar novas tarefas, a princípio sem ter que desenvolver algoritmos.
+
+  A ideia é que a PlatIA ainda crie um ambiente colaborativo para que os especialistas que se interessem possam desenvolver e disponibilizar para os usuários menos experientes.
+
+
+  Temos um repositório que podemos utilizar para estudarmos a plataforma, PlatIagro.
+
+  https://platiagro.github.io/tutorials/
